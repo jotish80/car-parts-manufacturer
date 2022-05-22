@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import car from '../assets/images/car.ico'
 const Navbar = () => {
 
     const menuItems =
         <>
-            <li><Link to='/'>Home</Link></li>
-            <li><Link to='/purchase'>Purchase</Link></li>
-            <li><Link to='/reviews'>Reviews</Link></li>
-            <li><Link to='/login'>Login</Link></li>
-            <li><Link to='/signup'>Sign Up</Link></li>
+            <li><Link className='text-xl font-bold' to='/'>Home</Link></li>
+            <li><Link className='text-xl font-bold' to='/purchase'>Purchase</Link></li>
+            <li><Link className='text-xl font-bold' to='/reviews'>Reviews</Link></li>
+            <li><Link className='text-xl font-bold' to='/login'>Login</Link></li>
+            <li><Link className='text-xl font-bold' to='/signup'>Sign Up</Link></li>
         </>
     return (
         <div class="navbar bg-base-100">
@@ -22,7 +22,13 @@ const Navbar = () => {
                         {menuItems}
                     </ul>
                 </div>
-                <a class="btn btn-ghost normal-case text-xl">Car Parts Manufacturer</a>
+             
+                <div className='flex'>
+                   <Link to="/">
+                       <img   style={{height:'60px', width:'50px', marginLeft:'80px'}} src={car} alt="" />
+                   </Link>
+                    <Link to='/'> <a class="btn btn-ghost normal-case text-xl">Quality Parts</a></Link>
+                </div>
             </div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal p-0">

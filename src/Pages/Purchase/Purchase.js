@@ -7,10 +7,10 @@ const Purchase = () => {
     const [products, setProducts] = useState({});
     console.log(products)
     useEffect(()=>{
-        fetch('product.json'+ productId)
+        fetch(`http://localhost:5000/products/${productId}`)
         .then(res => res.json())
         .then( data =>setProducts(data))
-    },[])
+    },[products]);
 
     return (
         <div className='flex justify-around items-center gap-7 px-10 ml-5 py-10 mt-5 mb-12'>
@@ -23,13 +23,14 @@ const Purchase = () => {
                 <h2 className='text-center'>Order Quantity: {products.orderQuantity}</h2>
                 <h2 className='text-center'>available Quantity: {products.availableQuantity}</h2>
                 <div class="card-actions justify-center">
-                    <button class="btn btn-primary">Delivered</button>
+                    <button class="btn btn-success bg-success">Delivered</button>
                 </div>
             </div>
         </div>
           <div className="justify-center">
-                <input type="number" placeholder="Type here" class="input input-bordered input-primary w-full max-w-xs mb-5" /> 
-                <button class="btn btn-primary text-center">Add Quantity</button>
+                <h2 className='text-center text-2xl mb-2 font-bold'>Add Quantity</h2>
+                <input type="number" placeholder="Quantity" class="input input-bordered input-primary w-full max-w-xs mb-5" /> 
+                <button class="btn btn-success text-center w-full bg-success">Add Quantity</button>
             </div>
         </div>
     );

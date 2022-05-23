@@ -7,7 +7,7 @@ import { GiStarsStack } from 'react-icons/gi';
 const BusinessSummary = () => {
     return (
         <>
-        <h2 className='text-center text-primary text-5xl mt-10 mb-10'>Business Summary</h2>
+        <h1 className='text-center text-primary text-5xl mt-10 mb-10'>Business Summary</h1>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 px-10 py-10 mt-5 mb-12">
             
             <div class="stat shadow-lg text-center">

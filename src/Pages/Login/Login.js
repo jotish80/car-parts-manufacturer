@@ -1,9 +1,11 @@
 import React from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import auth from '../../Firebase/firebase.init'
 import { useForm } from "react-hook-form";
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../../Shared/Loading';
+import background from '../../assets/images/backround.jpg'
+import auth from '../../Firebase/firebase.init';
 
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -14,9 +16,9 @@ const Login = () => {
 
     let from = location.state?.from?.pathname || "/";
 
-    // if (loading || googleLoading) {
-    //     return <Loading />
-    // }
+    if (loading || googleLoading) {
+        return <Loading />
+    }
 
 
     if (user || googleUser) {
@@ -34,8 +36,18 @@ const Login = () => {
         console.log(data)
         signInWithEmailAndPassword(data.email, data.password)
     };
+
+ 
+    const myStyle = {
+        backgroundImage:
+            `url(${background})`,
+        height: '100vh',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat', 
+        opacity: '0.8'  
+    };
     return (
-        <div className='flex h-screen justify-center items-center'>
+        <div style={myStyle} className='flex h-screen justify-center items-center'>
             <div class="card w-96 bg-base-100 shadow-xl">
                 <div class="card-body">
                     <h2 class="text-center text-2xl font-bold">Login</h2>
@@ -83,7 +95,8 @@ const Login = () => {
                         {displayErrorMessage}
                         <input className='btn w-full max-w-xs text-white' value="Login" type='submit' />
                     </form>
-                    <p>New to this site? <Link className='text-secondary' to='/signup'>Create a New User</Link></p>
+                    <p className='mt-2'>New to this site? <Link className='text-orange-600 ml-2' to='/signup'>Create a New User</Link></p>
+                     
                     <div class="divider">OR</div>
                     <div className='card-action justify-center'>
                         <button className='btn btn-outline w-full' onClick={() => signInWithGoogle()}><FcGoogle className='mr-2 h-6 w-6'/>Google log in</button>

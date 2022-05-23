@@ -4,6 +4,7 @@ import auth from '../../Firebase/firebase.init'
 import { useForm } from "react-hook-form";
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import bg from '../../assets/images/bg.jpg'
 
 const SignUp = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
@@ -29,8 +30,17 @@ const SignUp = () => {
         console.log(data)
         signInWithEmailAndPassword(data.email, data.password)
     };
+
+     const myStyle = {
+        backgroundImage:
+            `url(${bg})`,
+        height: '100vh',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat', 
+        opacity: '0.8'  
+    };
     return (
-        <div className='flex h-screen justify-center items-center'>
+        <div style={myStyle} className='flex h-screen justify-center items-center'>
             <div class="card w-96 bg-base-100 shadow-xl">
                 <div class="card-body">
                     <h2 class="text-center text-2xl font-bold">Sign Up</h2>
@@ -93,7 +103,7 @@ const SignUp = () => {
                             </label>
                         </div>
                         {displayErrorMessage}
-                        <input className='btn w-full max-w-xs text-white' value="Login" type='submit' />
+                        <input className='btn w-full max-w-xs text-white' value="Sign Up" type='submit' />
                     </form>
                     <p>Already have an account? <Link className='text-secondary' to='/login'>Please Login</Link></p>
                     <div class="divider">OR</div>

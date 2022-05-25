@@ -16,12 +16,13 @@ const Footer = () => {
                         <div className="">
                             <div className="footer-widget">
                                 <div className="footer-widget-heading">
-                                    <h3>Our Opinion</h3>
+                                    <h3>Special Review</h3>
                                 </div>
                                 <div className="footer-text">
-                                    <p> If you have ever been inside a grocery store, you have probably noticed the produce section. Mountains of lemons, piles of tomatoes, rows of cucumbers, several kinds of apples, and more. Some of these items you might know as fruits, and others as vegetables.We should know the difference between a fruit and a vegetable </p>
+                                    <p> So surprised when Emmy reached out to me regarding my review of order number 56666637.
+                                        It was a very small inconvenience, but I understand that for people who aren't internet savvy, it's important to give them easy instructions! Your customer service ROCKS! Thank you again for the nice gesture she extended to me. Very grateful anytime I get excellent service these days.</p>
                                 </div>
-                                 
+
                             </div>
                         </div>
                         <div className="">
@@ -57,10 +58,10 @@ const Footer = () => {
                                         <button><i className="fab fa-telegram-plane"></i></button>
                                     </form>
                                 </div>
-                                
+
                             </div>
                             <div className='mt-10 flex '>
-                                <GrFacebook style={{color:'white', marginRight:'50px'}} /><FiTwitter style={{color:'white', marginRight:'50px'}} /> <SiInstagram style={{color:'white', marginRight:'50px'}} /> <TiSocialYoutube style={{color:'white', marginRight:'50px'}} /> <TiSocialLinkedin  style={{color:'white', marginRight:'50px'}}/> <FaGoogle style={{color:'white', marginRight:'50px'}} />
+                                <GrFacebook style={{ color: 'white', marginRight: '50px' }} /><FiTwitter style={{ color: 'white', marginRight: '50px' }} /> <SiInstagram style={{ color: 'white', marginRight: '50px' }} /> <TiSocialYoutube style={{ color: 'white', marginRight: '50px' }} /> <TiSocialLinkedin style={{ color: 'white', marginRight: '50px' }} /> <FaGoogle style={{ color: 'white', marginRight: '50px' }} />
                             </div>
                         </div>
                     </div>

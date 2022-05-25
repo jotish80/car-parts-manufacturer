@@ -1,6 +1,12 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../Firebase/firebase.init';
 
 const MyOrders = () => {
+
+    const [user] = useAuthState(auth);
+    console.log(user);
+
     return (
         <div>
             <div class="overflow-x-auto">
@@ -10,7 +16,7 @@ const MyOrders = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -18,19 +24,24 @@ const MyOrders = () => {
                             <th>1</th>
                             <td>Cy Ganderton</td>
                             <td>Quality Control Specialist</td>
-                            <td>Blue</td>
+                            <button className='btn btn-outline'>Cancel</button>
+                            <button className='btn btn-outline ml-2'>Pay</button>
                         </tr>
                         <tr>
                             <th>2</th>
                             <td>Hart Hagerty</td>
                             <td>Desktop Support Technician</td>
-                            <td>Purple</td>
+                            
+                            <button className='btn btn-outline'>Cancel</button>
+                            <button className='btn btn-outline ml-2'>Pay</button>
                         </tr>
                         <tr>
                             <th>3</th>
                             <td>Brice Swyre</td>
                             <td>Tax Accountant</td>
-                            <td>Red</td>
+                            
+                            <button className='btn btn-outline'>Cancel</button>
+                            <button className='btn btn-outline ml-2'>Pay</button>
                         </tr>
                     </tbody>
                 </table>

@@ -13,6 +13,10 @@ import MyProfile from './Pages/DashBoard/MyProfile';
 import DashBoard from './Pages/DashBoard/DashBoard';
 import MyOrders from './Pages/DashBoard/MyOrders';
 import AddReview from './Pages/DashBoard/AddReview';
+import ManageOrders from './Pages/DashBoard/ManageOrders';
+import AddProduct from './Pages/DashBoard/AddProduct';
+import ManageProducts from './Pages/DashBoard/ManageProducts';
+import MakeAdmin from './Pages/DashBoard/MakeAdmin';
 
 function App() {
   return (
@@ -32,7 +36,10 @@ function App() {
         <Route path='/dashboard' element={<DashBoard />}>
           <Route index element={<MyOrders />}></Route>
           <Route path='review' element={<AddReview />}></Route>
-          <Route path='orders' element={<MyOrders/>}></Route>
+          <Route path='manageorders' element={<ManageOrders/>}></Route>
+          <Route path='addproduct' element={<AddProduct/>}></Route>
+          <Route path='admin' element={<MakeAdmin/>}></Route>
+          <Route path='manageproducts' element={<ManageProducts/>}></Route>
           <Route path='profile' element={<MyProfile/>}></Route>
         </Route> 
         <Route path='*' element={<NotFound />} /> 

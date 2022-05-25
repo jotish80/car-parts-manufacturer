@@ -1,36 +1,50 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import auth from '../../Firebase/firebase.init';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Purchase = () => {
-    const productId = useParams()
-    console.log(productId);
-    const [products, setProducts] = useState({});
-    console.log(products)
+
+    const [user] = useAuthState(auth);
+    console.log(user)
+    const{ id} = useParams()
+    const [product, setProduct] = useState({});
+    
     useEffect(()=>{
-        fetch(`http://localhost:5000/products/${productId}`)
-        .then(res => res.json())
-        .then( data =>setProducts(data))
-    },[products]);
+        async function getProduct(){
+        const singleProduct = await fetch(`http://localhost:5000/products/${id}`)
+         const product = await singleProduct.json()
+         setProduct(product)
+        }
+        getProduct();
+    },[]);
 
     return (
         <div className='flex justify-around items-center gap-7 px-10 ml-5 py-10 mt-5 mb-12'>
-             <div class="card w-96 bg-base-100 shadow-xl">
-            <figure><img src={products.img} alt="Shoes" /></figure>
+             <div class="card w-[500px] bg-base-100 shadow-xl">
+            <figure><img src={product.img} alt="Shoes" /></figure>
             <div class="card-body"> 
-                <h2 class="card-title">{products.name} {products.length}</h2>
-                <p>{products.description}</p>
-                <h2 className='text-center'>Price$ {products.price}</h2>
-                <h2 className='text-center'>Order Quantity: {products.orderQuantity}</h2>
-                <h2 className='text-center'>available Quantity: {products.availableQuantity}</h2>
+                <h2 class="text-2xl font-bold text-emerald-400">{product.name}</h2>
+                <p className='text-xl font-semibold'>{product.description}</p>
+                <h2 className='text-center text-xl font-semibold'>Price: ${product.price}</h2>
+                <h2 className='text-center text-xl font-semibold font-semibold'>Order Quantity: {product.orderQuantity}</h2>
+                <h2 className='text-center text-xl font-semibold'>available Quantity: {product.availableQuantity}</h2>
+                <h2 className='text-center text-xl font-semibold'>User Name: {user.displayName}</h2>
+                <h2 className='text-center text-xl font-semibold'>Email: {user.email}</h2>
+                  <input type="text" placeholder="Address" class="input input-bordered input-primary w-full max-w-xs mb-5 mx-auto" /> 
+                  <input type="number" placeholder="Phone Number" class="input input-bordered input-primary w-full max-w-xs mb-5 mx-auto" /> 
                 <div class="card-actions justify-center">
-                    <button class="btn btn-success bg-success">Delivered</button>
+                    <button class="btn btn-success bg-success">Place Order</button>
                 </div>
             </div>
         </div>
           <div className="justify-center">
-                <h2 className='text-center text-2xl mb-2 font-bold'>Add Quantity</h2>
+                <h2 className='text-center text-2xl mb-3 font-bold'>Update Quantity</h2>
                 <input type="number" placeholder="Quantity" class="input input-bordered input-primary w-full max-w-xs mb-5" /> 
-                <button class="btn btn-success text-center w-full bg-success">Add Quantity</button>
+                <div className="flex">
+                    <button class="btn btn-success text-center">Add Quantity</button>
+                <button class="btn btn-warning text-center ml-2">Delete Quantity</button>
+                </div>
             </div>
         </div>
     );

@@ -35,6 +35,7 @@ const Blogs = () => {
                     <p className='text-xl font-semibold'> Unit testing is a software development process. Where developers do smallest testable parts of application, called units are individually and freely scrutinized for proper operations. Developer do their taste in development process by the software.</p>
                     <p className='text-xl font-semibold'>Unit taste confirm that all code meets quality standards before it deployed. Unite taste saves time and money and help developers to write better code and more efficiently.</p>
                 </div>
+            </div>
             <div class="card w-full bg-base-100 shadow-xl mb-10">
                 <div class="card-body">
                     <h2 class="card-title text-2xl">Why you do not set the state directly in React?</h2>
@@ -42,6 +43,7 @@ const Blogs = () => {
                 </div>
             </div>
         </div>
+        
     );
 };
 

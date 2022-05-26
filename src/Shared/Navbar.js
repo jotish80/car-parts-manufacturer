@@ -19,13 +19,14 @@ const Navbar = () => {
                 !user?
                 (<>
                   <li><Link className='text-xl font-bold' to='/login'>Login</Link></li>
-                 <li><Link className='text-xl font-bold' to='/signup'>Sign Up</Link></li>
+                  <li><Link className='text-xl font-bold' to='/signup'>Sign Up</Link></li>
                 </>)
                 :
                 (<button className='text-xl font-bold' onClick={handleLogOut}>Logout</button>)
             }
             <li><Link className='text-xl font-bold' to='/blogs'>Blogs</Link></li>
-            <li><Link className='text-xl font-bold' to='/dashboard'>Dashboard</Link></li>
+            {user && <li><Link className='text-xl font-bold' to='/dashboard'>Dashboard</Link></li>}
+            <li><Link className='text-xl font-bold' to='/portfolio'>My Portfolio</Link></li>
         </>
     return (
         <div class="navbar bg-base-100">

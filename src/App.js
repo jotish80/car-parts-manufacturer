@@ -17,6 +17,7 @@ import ManageOrders from './Pages/DashBoard/ManageOrders';
 import AddProduct from './Pages/DashBoard/AddProduct';
 import ManageProducts from './Pages/DashBoard/ManageProducts';
 import MakeAdmin from './Pages/DashBoard/MakeAdmin';
+import MyPortfolio from './Pages/Home/MyPortfolio';
 
 function App() {
   return (
@@ -29,7 +30,6 @@ function App() {
             <Purchase />
          </RequireAuth>
         } /> 
-        
         <Route path='/login' element={<Login />} /> 
         <Route path='/signup' element={<SignUp />} /> 
         <Route path='/blogs' element={<Blogs />} /> 
@@ -42,6 +42,7 @@ function App() {
           <Route path='manageproducts' element={<ManageProducts/>}></Route>
           <Route path='profile' element={<MyProfile/>}></Route>
         </Route> 
+        <Route path='/portfolio' element={<MyPortfolio />} /> 
         <Route path='*' element={<NotFound />} /> 
       </Routes>
     </div>

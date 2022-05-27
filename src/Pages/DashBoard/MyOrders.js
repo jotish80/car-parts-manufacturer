@@ -4,16 +4,17 @@ import auth from '../../Firebase/firebase.init';
 
 const MyOrders = () => {
 
-    const [user] = useAuthState(auth);
-    console.log(user.email)
-    const [order, setOrder] = useState();
+     const [user] = useAuthState(auth);
+     const[orders, setOrders] = useState([]);
+     console.log(orders);
 
-        // useEffect(() =>{
-        //     // const email = user.email;
-        //     fetch(`http://localhost:5000/products/${user.email}`)
-        //     .then(res=> res.json())
-        //     .then(data=> console.log(data))
-        // },[])
+         useEffect(() => {
+        const email = user.email;
+        fetch(`http://localhost:5000/products/${email}`)
+        .then(res =>res.json())
+        .then(data=> console.log(data))
+         
+    },[orders]);
 
     return (
         <div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import player1 from '../../assets/images/player-1.png'
 import player3 from '../../assets/images/player-3.png'
@@ -6,6 +6,31 @@ import player5 from '../../assets/images/player-5.png'
 
 
 const Reviews = () => {
+
+    // const [reviews, setReviews] = useState([])
+
+    //  useEffect(() =>{
+    //      fetch(`http://localhost:5000/review`)
+    //      .then(res => res.json())
+    //      .then(data => reviews.map(review =>   ))
+    //  },[]);
+
+    //   const handleDelete = (id) => {
+    //     const proceed = window.confirm('Are you sure?');
+    //     if (proceed) {
+    //         const url = (`https://sheltered-fortress-61368.herokuapp.com/orders/${id}/${user.email}`);
+    //         fetch(url, {
+    //             method: 'DELETE'
+    //         })
+    //             .then(res => res.json())
+    //             .then(result => {
+    //                 console.log(result);
+    //                 const remaining = orders.filter(order=> order._id !== id)
+    //                setOrders(remaining);
+    //             })
+    //     }
+    // }
+
     return (
         <>
             <h1 className='text-center text-primary text-5xl'>REVIEWS</h1>

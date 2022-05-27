@@ -23,7 +23,7 @@ const TopProducts = () => {
                         </div>
                     <p>Ready to Deliver...</p>
                     <div class="card-actions">
-                        <button class="btn btn-primary">Buy Now</button>
+                        <button class="btn btn-accent">Buy Now</button>
                     </div>
                 </div>
             </div>
@@ -42,7 +42,7 @@ const TopProducts = () => {
                         </div>
                     <p>Ready to Deliver...</p>
                     <div class="card-actions">
-                        <button class="btn btn-primary">Buy Now</button>
+                        <button class="btn btn-accent">Buy Now</button>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@ const TopProducts = () => {
                         </div>
                     <p>Ready to Deliver...</p>
                     <div class="card-actions">
-                        <button class="btn btn-primary">Buy Now</button>
+                        <button class="btn btn-accent">Buy Now</button>
                     </div>
                 </div>
             </div>

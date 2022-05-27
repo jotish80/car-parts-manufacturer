@@ -6,9 +6,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 const Purchase = () => {
 
     const [user] = useAuthState(auth);
-    console.log(user)
     const { id } = useParams()
     const [product, setProduct] = useState({});
+    const [quantity, setQuantity] = useState(0);
 
     useEffect(() => {
         async function getProduct() {
@@ -19,11 +19,32 @@ const Purchase = () => {
         getProduct();
     }, []);
 
+           const handleUpdateCount = () => {
+        const updatedQuantity = { number: quantity };
+        //send data to server
+        fetch(`http://localhost:5000/products/${id}`, {
+
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedQuantity)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // toast('Quantity added successfully', { position: toast.POSITION.TOP_CENTER });
+                setProduct(data);
+                setQuantity('');
+                // setChanges('something changed')
+            })
+
+    }
+
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 px-10 py-10 gap-7 mt-5 mb-12 ml-24'>
             <div class="card w-3/4 bg-base-100 shadow-xl">
                 <figure><img src={product.img} alt="Shoes" /></figure>
-               <h2 class="text-2xl font-bold text-emerald-400 text-center mt-5">Gears</h2>
+               <h2 class="text-2xl font-bold text-emerald-400 text-center mt-5 mb-5">{product.name}</h2>
             </div>
             <div class="card w-3/4 bg-base-100 shadow-xl">
                 <h2 className='text-center text-2xl mb-3 font-bold'>Product Details</h2>
@@ -48,9 +69,9 @@ const Purchase = () => {
                             
                         </div>
                 <div>
-                        <input type="number" placeholder="Quantity" class="input input-bordered input-primary w-full max-w-xs mb-5 ml-12" /><br />
-                    <button class="btn btn-success text-center">Add Quantity</button>
-                    <button class="btn btn-warning text-center ml-2">Delete Quantity</button>
+                        <input onChange={(e) => setQuantity(e.target.value)} value={quantity} type="number" placeholder="Quantity" class="input input-bordered input-primary w-full max-w-xs mb-5 ml-12" /><br />
+                    <button onClick={handleUpdateCount} class="btn btn-success text-center mb-2">Add Quantity</button>
+                    <button class="btn btn-warning text-center ml-2 mb-2">Delete Quantity</button>
                         <label for="my-modal-3" class="btn btn-primary ml-2">Place Order</label>
                 </div>
                     </div>

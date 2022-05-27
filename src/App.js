@@ -17,7 +17,7 @@ import ManageOrders from './Pages/DashBoard/ManageOrders';
 import AddProduct from './Pages/DashBoard/AddProduct';
 import ManageProducts from './Pages/DashBoard/ManageProducts';
 import MakeAdmin from './Pages/DashBoard/MakeAdmin';
-import MyPortfolio from './Pages/Home/MyPortfolio';
+import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 
 function App() {
   return (

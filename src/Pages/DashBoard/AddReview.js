@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import bg from '../../assets/images/bg1.jpg'
-import axios from 'axios';
+ import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
+ 
 const AddReview = () => {
     
     const nameRef = useRef('')
@@ -16,7 +18,7 @@ const AddReview = () => {
 
                 console.log(name, number, description);
 
-       const url =(`http://localhost:5000/review`)
+       const url =(`https://boiling-tundra-47817.herokuapp.com/review`)
         fetch(url, {
             method: 'POST',
             headers: {
@@ -26,7 +28,10 @@ const AddReview = () => {
         })
 
         .then(res => res.json())
-        .then(data=> console.log(data))
+        .then(data=> {
+            console.log(data)
+            toast('review added')
+        })
 
          
     }
@@ -53,6 +58,7 @@ const AddReview = () => {
                         <textarea class="textarea textarea-success w-[320px]" ref={descriptionRef} name='description' placeholder="Description"></textarea>
                         <button onClick={handleSubmit} class="btn btn-primary w-full mt-4 text-white" value='submit' type='submit'>Submit</button>
                     </form>
+                    <ToastContainer />
                 </div>
             </div>
           </div>

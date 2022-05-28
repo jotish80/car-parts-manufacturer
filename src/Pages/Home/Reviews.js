@@ -10,7 +10,7 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:5000/review`)
+        fetch(`https://boiling-tundra-47817.herokuapp.com/review`)
             .then(res => res.json())
             .then(data => setReviews(data))
     }, []);
@@ -18,7 +18,7 @@ const Reviews = () => {
     //   const handleDelete = (id) => {
     //     const proceed = window.confirm('Are you sure?');
     //     if (proceed) {
-    //         const url = (`http://localhost:5000/orders/${id}/${user.email}`);
+    //         const url = (`https://boiling-tundra-47817.herokuapp.com/orders/${id}/${user.email}`);
     //         fetch(url, {
     //             method: 'DELETE'
     //         })

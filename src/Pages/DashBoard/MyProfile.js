@@ -22,7 +22,7 @@ const MyProfile = () => {
         const location = locationRef.current.value;
           console.log(name,email,phoneNumber,education,location);
 
-        const url =(`http://localhost:5000/review`)
+        const url =(`https://boiling-tundra-47817.herokuapp.com/review`)
         fetch(url, {
             method: 'POST',
             headers: {

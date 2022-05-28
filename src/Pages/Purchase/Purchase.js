@@ -18,7 +18,7 @@ const Purchase = () => {
 
     useEffect(() => {
         async function getProduct() {
-            const singleProduct = await fetch(`http://localhost:5000/products/${id}`)
+            const singleProduct = await fetch(`https://boiling-tundra-47817.herokuapp.com/products/${id}`)
             const product = await singleProduct.json()
             setProduct(product)
         }
@@ -34,7 +34,7 @@ const Purchase = () => {
                    phone,
                }
         //send data to server
-        fetch(`http://localhost:5000/order`, {
+        fetch(`https://boiling-tundra-47817.herokuapp.com/order`, {
 
             method: 'POST',
             headers: {

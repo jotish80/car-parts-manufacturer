@@ -10,7 +10,7 @@ const MyOrders = () => {
     useEffect(() => {
         
         if(user){
-            fetch(`http://localhost:5000/order/${user.email}`)
+            fetch(`https://boiling-tundra-47817.herokuapp.com/order/${user.email}`)
         .then(res =>res.json())
         .then(data=> {
             console.log(data)

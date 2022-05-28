@@ -18,6 +18,7 @@ import AddProduct from './Pages/DashBoard/AddProduct';
 import ManageProducts from './Pages/DashBoard/ManageProducts';
 import MakeAdmin from './Pages/DashBoard/MakeAdmin';
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
+import Payment from './Pages/DashBoard/Payment';
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           <Route path='admin' element={<MakeAdmin/>}></Route>
           <Route path='manageproducts' element={<ManageProducts/>}></Route>
           <Route path='profile' element={<MyProfile/>}></Route>
+          <Route path='payment' element={<Payment/>}></Route>
         </Route> 
         <Route path='/portfolio' element={<MyPortfolio />} /> 
         <Route path='*' element={<NotFound />} /> 

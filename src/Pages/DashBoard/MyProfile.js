@@ -8,14 +8,29 @@ const MyProfile = () => {
     const educationRef = useRef('')
     const locationRef = useRef('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e, data) => {
         e.preventDefault();
-        const name = nameRef.current.value;
+          const name = nameRef.current.value;
         const email = emailRef.current.value;
         const phoneNumber = phoneNumberRef.current.value;
         const education = educationRef.current.value;
         const location = locationRef.current.value;
-        console.log(name,email);
+          console.log(name,email);
+
+        const url =(`http://localhost:5000/review`)
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify({...data, name: name, email:email,phoneNumber:phoneNumber, education:education, location:location })
+        })
+
+        .then(res => res.json())
+        .then(data=> console.log(data))
+
+      
+      
     }
 
        const myStyle = {

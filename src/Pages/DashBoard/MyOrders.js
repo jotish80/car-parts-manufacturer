@@ -6,15 +6,19 @@ const MyOrders = () => {
 
      const [user] = useAuthState(auth);
      const[orders, setOrders] = useState([]);
-     console.log(orders);
 
-         useEffect(() => {
-        const email = user.email;
-        fetch(`http://localhost:5000/products/${email}`)
+    useEffect(() => {
+        
+        if(user){
+            fetch(`http://localhost:5000/order/${user.email}`)
         .then(res =>res.json())
-        .then(data=> console.log(data))
+        .then(data=> {
+            console.log(data)
+            setOrders(data)
+        })
+    }
          
-    },[orders]);
+    },[]);
 
     return (
         <div>
@@ -22,36 +26,34 @@ const MyOrders = () => {
                 <table class="table w-full">
                     <thead>
                         <tr>
-                            <th></th>
+                             
                             <th>Name</th>
-                            <th>Job</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <button className='btn btn-outline'>Cancel</button>
-                            <button className='btn btn-outline ml-2'>Pay</button>
-                        </tr>
-                        <tr>
-                            <th>2</th>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
+                        {
+                            orders.map(order=>  <tr>
+                                {console.log(order.productId.name)}
+                                {console.log(order)}
                             
-                            <button className='btn btn-outline'>Cancel</button>
+                            <td>{order.productId.name}</td>
+                            <td>$ {order.productId.price}</td>
+                            <td>{order.quantity}</td>
+                            <label for="my-modal-3" class="btn modal-button btn-outline">Cancel</label>
+                        <input type="checkbox" id="my-modal-3" class="modal-toggle" />
+                        <div class="modal">
+                        <div class="modal-box relative">
+                            <label for="my-modal-3" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                            <h3 class="text-lg font-bold">Are You Sure?</h3>
+                        </div>
+                        </div>
                             <button className='btn btn-outline ml-2'>Pay</button>
-                        </tr>
-                        <tr>
-                            <th>3</th>
-                            <td>Brice Swyre</td>
-                            <td>Tax Accountant</td>
-                            
-                            <button className='btn btn-outline'>Cancel</button>
-                            <button className='btn btn-outline ml-2'>Pay</button>
-                        </tr>
+                        </tr>)
+                        }
+                      
                     </tbody>
                 </table>
             </div>

@@ -20,6 +20,7 @@ const DashBoard = () => {
                     <li><Link className="text-xl font-bold" to='/dashboard/addproduct'>Add Product</Link></li>
                     <li><Link className="text-xl font-bold" to='/dashboard/admin'>Make Admin</Link></li>
                     <li><Link className="text-xl font-bold" to='/dashboard/manageproducts'>Manage Products</Link></li>
+                    <li><Link className="text-xl font-bold" to='/dashboard/payment'>Payment</Link></li>
                 </ul>
 
             </div>

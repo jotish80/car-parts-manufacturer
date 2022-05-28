@@ -4,7 +4,7 @@
     "name": "Tyre",
     "price": 50,
     "orderQuantity": 1,
-    "availableQuantity": 100,
+    "availableQuantity": 120,
     "supplierName": "Mark",
     "description":"Full of stock Tyre. We have 100 pice. Price for each pice is 100. Great product. All season you can easily.",
     "img": "https://i.ibb.co/vsZBSvf/obi-pixel6propix-Irdm0-tev-Pc-unsplash.jpg"
@@ -14,7 +14,7 @@
     "name": "Gears",
     "price": 40,
     "orderQuantity": 1,
-    "availableQuantity": 100,
+    "availableQuantity": 120,
     "supplierName":"John",
     "description": "The stock is available now. 150 for every candle. We have 100 cartoon. Full of guranty c and as an organic fruit getting popular.",
     "img": "https://i.ibb.co/WP2VTqS/julian-hochgesang-1-Ps-Ou8gy-ZIQ-unsplash.jpg"
@@ -34,7 +34,7 @@
     "name": "Air Pressure Tube",
     "price": 30,
     "orderQuantity": 1,
-    "availableQuantity": 130,
+    "availableQuantity": 120,
     "supplierName":"Petter",
     "description":"We have almost enough in stock. $60 and left 130. This air pressure tube has such a quality for sporting cars now a days.",
     "img": "https://i.ibb.co/xsLGT48/muffler-ga02669f52-640.jpg"
@@ -54,7 +54,7 @@
     "name": "Chain",
     "price": 30,
     "orderQuantity": 1,
-    "availableQuantity": 100,
+    "availableQuantity": 120,
     "supplierName":"Robert",
     "description":"We can ensure enough our stock is available. $30 and left 100 pice. We can bring more as long as client concern.",
     "img": "https://i.ibb.co/4gPTNbP/elena-mozhvilo-l-VGr-HFx-Af-E-unsplash.jpg"

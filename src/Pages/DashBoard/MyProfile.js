@@ -1,7 +1,12 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import bg from '../../assets/images/bg2.jpg'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 const MyProfile = () => {
 
+    const [user, setUser] = useState();
     const nameRef = useRef('')
     const emailRef = useRef('')
     const phoneNumberRef = useRef('')
@@ -15,7 +20,7 @@ const MyProfile = () => {
         const phoneNumber = phoneNumberRef.current.value;
         const education = educationRef.current.value;
         const location = locationRef.current.value;
-          console.log(name,email);
+          console.log(name,email,phoneNumber,education,location);
 
         const url =(`http://localhost:5000/review`)
         fetch(url, {
@@ -27,10 +32,11 @@ const MyProfile = () => {
         })
 
         .then(res => res.json())
-        .then(data=> console.log(data))
-
-      
-      
+        .then(data=> {
+            console.log(data)
+            setUser(data)
+            toast('User added')
+        })   
     }
 
        const myStyle = {
@@ -55,6 +61,7 @@ const MyProfile = () => {
                         <input class="input input-bordered input-secondary w-full max-w-xs" ref={educationRef} name='education' placeholder="Education"></input><br />
                         <input class="input input-bordered input-secondary w-full max-w-xs" ref={locationRef} name='location' placeholder="Location"></input>
                         <button onClick={handleSubmit} class="btn btn-success w-full mt-4 text-white" value='submit' type='submit'>Submit</button>
+                        <ToastContainer />
                     </form>
                 </div>
             </div>

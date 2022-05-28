@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import auth from '../../Firebase/firebase.init';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Purchase = () => {
 
@@ -43,11 +45,15 @@ const Purchase = () => {
             .then(res => res.json())
             .then(data => {
                 console.log("----> ", data)
+                toast('Submitted Successfully')
             })
     }
 
 
-
+ let errorMassage;
+    if (quantity < 0  || quantity > 120 ) {
+        errorMassage = <div><p className='text-red-500'>{ "quantity not should be less or more than quantity and available quantity"}</p></div>
+    }
 
     return (
         <div className='grid grid-cols-1 lg:grid-cols-2 px-10 py-10 gap-7 mt-5 mb-12 ml-24'>
@@ -79,9 +85,11 @@ const Purchase = () => {
                         </div>
                 <div>
                         <input onChange={(e) => setQuantity(e.target.value)} value={quantity} type="number" placeholder="Quantity" class="input input-bordered input-primary w-full max-w-xs mb-5 ml-12" /><br />
-                    <button onClick={() => setQuantity(quantity+1)} class="btn btn-success text-center mb-2">Increment Quantity</button>
+                        {errorMassage}
+                    <button onClick={() => setQuantity(Number(quantity)+1)} class="btn btn-success text-center mb-2">Increment Quantity</button>
                             <button onClick={() => setQuantity(quantity > 1 ? quantity - 1: quantity)}  class="btn btn-warning text-center ml-2 mb-2">Decrement Quantity</button>
                         <label for="my-modal-3" class="btn btn-primary ml-2">Place Order</label>
+                        <ToastContainer />
                 </div>
                     </div>
                     
